@@ -1,0 +1,66 @@
+ #froggy {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  transition:ease-in 0.3ms ;
+  transition: ease-out 0.3ms;
+  transition: top 2s;
+   transition: left 2s;
+  background-color: transparent;  
+   display: none;
+}
+
+
+ .btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#counter{
+text-align:center ;
+color:rgb(229, 233, 0)
+
+}
+
+
+#timer{
+text-align:center;
+color:rgb(224, 240, 3)
+
+}
+
+#myBody{
+height: 100vh;
+  background-image: url("rainforest-gif-new-new.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#startButton{
+padding: 10px 10px 10px 10px;
+color:forestgreen ;
+border-color:rgb(80, 136, 80) ;
+background-color: chartreuse;
+}
+
+
+
+html,body{
+  margin: 0;
+  height: 100%;
+}
+
+#box {
+  position: absolute;
+  width: 40px;
+  pointer-events: none; /* so it doesn’t block mouse */
+  visibility:hidden ;
+}
+
+

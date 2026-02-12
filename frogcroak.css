@@ -1,0 +1,14 @@
+.note{
+background-image: url(raindrop-with-light-flare-png.png);
+
+}     
+
+.hit-bar{
+background-image:url(frog.png);
+
+}  
+
+.hit-bar.lit{
+background-image:url(rainbow-frog-15.gif);
+
+}
