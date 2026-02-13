@@ -1,14 +1,46 @@
 .note{
-background-image: url(raindrop-with-light-flare-png.png);
+background-image: url(circle.png);
+height: 50px;
+width: 50px;
 
 }     
 
 .hit-bar{
-background-image:url(frog.png);
+ background-color: chocolate;
 
 }  
 
 .hit-bar.lit{
-background-image:url(rainbow-frog-15.gif);
 
+
+}
+.column{
+    float: left;
+    width:23%;
+    padding: 10px;
+    height: 600px;
+}
+#column-0{
+    background-color: #aaa;
+}
+#column-1{
+    background-color: #bbb;
+}
+#column-2{
+    background-color: #aaa;
+}
+#column-3{
+    background-color: #bbb;
+}
+.row{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#start-screen{
+    background-color: bisque;
+    border-radius: 20px;
+    height: 500px;
+    width: 500px;
 }

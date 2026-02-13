@@ -42,7 +42,7 @@ height: 100vh;
   overflow: hidden;
 }
 
-#startButton{
+#start-btn{
 padding: 10px 10px 10px 10px;
 color:forestgreen ;
 border-color:rgb(80, 136, 80) ;

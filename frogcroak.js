@@ -65,14 +65,14 @@ let spawned = new Set();
 // GRAB HTML ELEMENTS
 // ============================================================
 
-const scoreDisplay    = document.getElementById('score');
-const comboDisplay    = document.getElementById('combo');
+const scoreDisplay = document.getElementById('score');
+const comboDisplay = document.getElementById('combo');
 const accuracyDisplay = document.getElementById('accuracy');
-const startScreen     = document.getElementById('start-screen');
-const gameOverScreen  = document.getElementById('game-over');
-const finalScore      = document.getElementById('final-score');
-const startBtn        = document.getElementById('start-btn');
-const restartBtn      = document.getElementById('restart-btn');
+const startScreen = document.getElementById('start-screen');
+const gameOverScreen = document.getElementById('game-over');
+const finalScore = document.getElementById('final-score');
+const startBtn = document.getElementById('start-btn');
+const restartBtn = document.getElementById('restart-btn');
 
 // Grab all 4 columns and hit bars into arrays
 const columns = [
@@ -110,7 +110,7 @@ function startGame() {
     document.querySelectorAll('.note').forEach(n => n.remove());
 
     // Update displays
-    scoreDisplay.textContent    = '0';
+    scoreDisplay.text = '0';
     comboDisplay.textContent    = '';
     accuracyDisplay.textContent = '';
 
