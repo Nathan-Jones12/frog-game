@@ -1,17 +1,23 @@
 .note{
+position: relative;
 background-image: url(circle.png);
+background-repeat: no-repeat;
 height: 50px;
 width: 50px;
+transition: all 1s;
 
 }     
 
 .hit-bar{
  background-color: chocolate;
-
+ float: left;
+ width:100%;
+ height: 100px;
+ margin-bottom: auto;
 }  
 
 .hit-bar.lit{
-
+background-color: chartreuse;
 
 }
 .column{
