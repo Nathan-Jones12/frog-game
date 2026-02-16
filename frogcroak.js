@@ -180,7 +180,7 @@ function spawnNotes(elapsed) {
 
             // Add it to the correct column
             columns[beat.column].appendChild(noteEl);
-
+            
             // Store note info for tracking
             notes.push({
                 element:   noteEl,
@@ -209,6 +209,7 @@ function moveNotes(elapsed) {
         const columnHeight = columns[note.column].offsetHeight;
         const hitBarHeight = hitBars[note.column].offsetHeight;
         const targetY      = columnHeight - hitBarHeight - note.element.offsetHeight;
+        
 
         note.element.style.top = (progress * targetY) + 'px';
 

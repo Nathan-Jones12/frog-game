@@ -10,10 +10,9 @@ transition: all 1s;
 
 .hit-bar{
  background-color: chocolate;
- float: left;
- width:100%;
- height: 100px;
- margin-top:100%;
+ position: absolute;
+ width:20%;
+ height: 20px;
  border-radius: 10px;
 }  
 
@@ -39,10 +38,16 @@ background-color: chartreuse;
 #column-3{
     background-color: #bbb;
 }
+#hit-row{
+    display: block;
+    position: relative;
+    top:500px;
+    padding:50px;
+}
 .row{
-    content: '';
+    /* content: '';
     display: table;
-    clear: both;
+    clear: both; */
 }
 
 #start-screen{
