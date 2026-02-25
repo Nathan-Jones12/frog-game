@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frog Hunt – Canvas Version</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="froghunt.css">
 </head>
-<link rel="stylesheet" href="froghunt.css">
 <body id="myBody">
-   <h1 id ="counter"></h1>
-   <h2 id ="timer"></h2>
-<div class="btn-wrapper">
-  <button id="startButton">GET THE FROG</button>
-</div>
-<img id = "froggy" src="frog_no_bg.png" alt="Play">
-<img id="box" src="fryingpan.png" alt="Salt">
-    
-</body>
-<script src="froghunt.js"></script>
 
+  <h1 id="counter"></h1>
+  <h2 id="timer"></h2>
+
+  <div class="btn-wrapper">
+    <button id="startButton">🐸 GET THE FROG</button>
+  </div>
+
+  <!-- CANVAS replaces <img id="froggy">
+       One canvas covers the whole screen. The frog is drawn onto it
+       rather than being an HTML element moving around the page. -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- The frying pan cursor stays as a regular img -->
+  <img id="box" src="assets/fryingpan.webp" alt="Pan">
+
+  <script src="froghunt.js"></script>
+</body>
 </html>

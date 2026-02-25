@@ -1,41 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link href="frogcroak.css" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Trial of Camoflauge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="frogcroak.css" />
 </head>
 <body>
-<div id="score">0</div>            
- <div id="combo">0</div>              
- <div id="accuracy"></div>          
-<div id="start-screen">
-    <button id="start-btn" >Start</button>
-</div>    
- <div id="game-over">
-    <button id="restart-btn" >Restart</button>
- </div>       
-<span id="final-score">0</span>    
 
+  <div class="lily-pad-bg"></div>
+  <div class="bubbles" id="bubbles"></div>
 
+  <div class="game-wrapper">
 
-<div class="row">
- <div class="column" id="column-0"></div>
- <div class="column" id="column-1"></div>
- <div class="column" id="column-2"></div>
- <div class="column" id="column-3"></div>
-</div>
+    <header class="game-header">
+      <h1>🐸 Frog Memory</h1>
+      <p class="subtitle">Study the frog — then answer before it hops away!</p>
+    </header>
 
-<div id="hit-row">
-     <div class="hit-bar" id="hit-bar-0"></div>
-     <div class="hit-bar" id="hit-bar-1"></div>
-     <div class="hit-bar" id="hit-bar-2"></div>
-     <div class="hit-bar" id="hit-bar-3"></div>
-</div>
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <div class="score-box">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="score">0</span>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Round</span>
+        <span class="score-value" id="round-display">1 / 8</span>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Lives</span>
+        <span class="score-value" id="lives">❤️❤️❤️</span>
+      </div>
+    </div>
 
+    <!-- Frog Display Stage -->
+    <div class="stage" id="stage">
+      <div class="stage-inner" id="stage-inner">
+        <!-- idle state -->
+        <div class="idle-state" id="idle-state">
+          <div class="idle-frog">🐸</div>
+          <p>Ready to test your memory?</p>
+          <button class="btn-primary" id="start-btn">Show Me A Frog!</button>
+        </div>
 
-    <script src="frogcroak.js"></script>
+        <!-- frog reveal -->
+        <div class="reveal-state hidden" id="reveal-state">
+          <div class="frog-frame">
+            <img id="frog-img" src="" alt="Mystery Frog" />
+          </div>
+          <div class="countdown-ring">
+            <svg viewBox="0 0 60 60" class="ring-svg">
+              <circle cx="30" cy="30" r="26" class="ring-track"/>
+              <circle cx="30" cy="30" r="26" class="ring-fill" id="ring-fill"/>
+            </svg>
+            <span class="ring-number" id="ring-number">3</span>
+          </div>
+        </div>
+
+        <!-- answer state -->
+        <div class="answer-state hidden" id="answer-state">
+          <div class="silhouette-wrap">
+            <div class="silhouette">?</div>
+            <p class="silhouette-label">What was that frog?</p>
+          </div>
+
+          <div class="answer-timer-bar-wrap">
+            <div class="answer-timer-bar" id="answer-timer-bar"></div>
+          </div>
+          <p class="answer-timer-text" id="answer-timer-text">10s to answer</p>
+
+          <div class="dropdowns">
+            <div class="dropdown-group">
+              <label for="sel-color">🎨 Body Color</label>
+              <div class="select-wrap">
+                <select id="sel-color">
+                  <option value="">— select —</option>
+                  <option value="blue">Blue</option>
+                  <option value="green">Green</option>
+                  <option value="orange">Orange</option>
+                  <option value="purple">Purple</option>
+                  <option value="red">Red</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="brown">Brown</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="dropdown-group">
+              <label for="sel-eyes">👁️ Eye Color</label>
+              <div class="select-wrap">
+                <select id="sel-eyes">
+                  <option value="">— select —</option>
+                  <option value="black">Black</option>
+                  <option value="red">Red</option>
+                  <option value="white">White</option>
+                  <option value="brown">Brown</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="dropdown-group">
+              <label for="sel-looking">👀 Looking</label>
+              <div class="select-wrap">
+                <select id="sel-looking">
+                  <option value="">— select —</option>
+                  <option value="down">Down</option>
+                  <option value="left">Left</option>
+                  <option value="right">Right</option>
+                  <option value="up">Up</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-primary" id="submit-btn">Submit Answer 🐸</button>
+        </div>
+
+        <!-- result state -->
+        <div class="result-state hidden" id="result-state">
+          <div class="result-icon" id="result-icon"></div>
+          <h2 class="result-title" id="result-title"></h2>
+          <div class="result-details" id="result-details"></div>
+          <button class="btn-primary" id="next-btn">Next Frog →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Screen -->
+    <div class="end-screen hidden" id="end-screen">
+      <div class="end-frog">🏆</div>
+      <h2 id="end-title">All frogs done!</h2>
+      <p id="end-message"></p>
+      <div class="end-stats" id="end-stats"></div>
+      <button class="btn-primary" id="replay-btn">🔄 Play Again</button>
+    </div>
+
+  </div>
+
+  <script src="frogcroak.js"></script>
 </body>
 </html>

@@ -1,66 +1,217 @@
- #froggy {
+ /* ═══════════════════════════════════════════════════
+   FROG HUNT — styled to match Frog Memory Game
+   Fonts: Lilita One (display) + Nunito (body)
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ─── Variables (mirrors memory game) ─── */
+:root {
+  --bg-deep:      #0d1f0e;
+  --bg-mid:       #122314;
+  --bg-card:      #172d18;
+  --bg-card2:     #1e3a20;
+  --border:       #2a4d2c;
+  --border-glow:  #4a8c4e;
+  --green-main:   #4caf50;
+  --green-light:  #76d97a;
+  --green-pale:   #a8e6ab;
+  --accent:       #f0c040;
+  --accent-2:     #ff7043;
+  --text-main:    #e8f5e9;
+  --text-muted:   #7aad7e;
+  --font-display: 'Lilita One', cursive;
+  --font-body:    'Nunito', sans-serif;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ─── Body ─── */
+#myBody {
+  font-family: var(--font-body);
+  height: 100vh;
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(34, 85, 34, 0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 20%, rgba(20, 60, 20, 0.32) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(15, 40, 15, 0.5) 0%, transparent 60%),
+    url("assets/rainforest-gif-new-new.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  overflow: hidden;
+  color: var(--text-main);
+  position: relative;
+}
+
+/* ─── Swamp overlay for depth ─── */
+#myBody::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(13, 31, 14, 0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 40% at 50% 100%, rgba(13, 31, 14, 0.7) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Counter ─── */
+#counter {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--accent);
+  text-shadow:
+    0 0 20px rgba(240, 192, 64, 0.6),
+    0 3px 0 rgba(0, 0, 0, 0.6);
+  padding-top: 24px;
+  letter-spacing: 1px;
+}
+
+/* ─── Timer ─── */
+#timer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--green-light);
+  text-shadow:
+    0 0 16px rgba(76, 175, 80, 0.5),
+    0 2px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* ─── Button wrapper ─── */
+.btn-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 120px);
+}
+
+/* ─── Start button (mirrors .btn-primary from memory game) ─── */
+#startButton {
+  background: linear-gradient(135deg, #3a8f3e, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 44px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow:
+    0 4px 24px rgba(76, 175, 80, 0.45),
+    0 2px 0 #276b2a,
+    inset 0 1px 0 rgba(255,255,255,0.15);
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  top: 0;
+  user-select: none;
+}
+
+#startButton:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 36px rgba(76, 175, 80, 0.6),
+    0 2px 0 #276b2a;
+}
+
+#startButton:active {
+  transform: translateY(1px);
+  top: 2px;
+  box-shadow:
+    0 2px 12px rgba(76, 175, 80, 0.3),
+    0 0px 0 #276b2a;
+}
+
+/* ─── Frog image ─── */
+#froggy {
   width: 90px;
   height: 90px;
   position: absolute;
   top: 75%;
   left: 25%;
-  transition:ease-in 0.3ms ;
-  transition: ease-out 0.3ms;
-  transition: top 2s;
-   transition: left 2s;
-  background-color: transparent;  
-   display: none;
-}
-
-
- .btn-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-#counter{
-text-align:center ;
-color:rgb(229, 233, 0)
-
-}
-
-
-#timer{
-text-align:center;
-color:rgb(224, 240, 3)
-
-}
-
-#myBody{
-height: 100vh;
-  background-image: url("rainforest-gif-new-new.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-
-#start-btn{
-padding: 10px 10px 10px 10px;
-color:forestgreen ;
-border-color:rgb(80, 136, 80) ;
-background-color: chartreuse;
+  display: none;
+  z-index: 3;
+  cursor: crosshair;
+  filter:
+    drop-shadow(0 0 12px rgba(76, 175, 80, 0.7))
+    drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  transition:
+   top 1s ease-in-out,
+    left 1s ease-in-out,;
+   /*opacity 0.1s ease;*/ 
+  background-color: transparent;
 }
 
 
 
-html,body{
-  margin: 0;
-  height: 100%;
+
+
+#froggy:hover {
+  filter:
+    drop-shadow(0 0 22px rgba(240, 192, 64, 0.8))
+    drop-shadow(0 4px 8px rgba(0,0,0,0.5));
 }
 
+/* ─── Frying pan cursor-follower ─── */
 #box {
-  position: absolute;
-  width: 40px;
-  pointer-events: none; /* so it doesn’t block mouse */
-  visibility:hidden ;
+  position: fixed;
+  width: 44px;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 10;
+  filter:
+    drop-shadow(0 2px 6px rgba(0,0,0,0.6))
+    drop-shadow(0 0 10px rgba(240,192,64,0.3));
+  transform: translate(-30%, -30%);
 }
 
+/* ─── Caught flash effect ─── */
+@keyframes caughtFlash {
+  0%   { filter: brightness(3) drop-shadow(0 0 20px rgba(240,192,64,0.9)); }
+  100% { filter: drop-shadow(0 0 12px rgba(76, 175, 80, 0.7)) drop-shadow(0 4px 8px rgba(0,0,0,0.5)); }
+}
 
+#froggy.caught {
+  animation: caughtFlash 0.4s ease-out;
+}
+
+/* ─── Score pop animation ─── */
+@keyframes scorePop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); color: var(--green-light); }
+  100% { transform: scale(1); }
+}
+
+#counter.pop {
+  animation: scorePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── Timer urgency pulse ─── */
+@keyframes urgentPulse {
+  0%, 100% { color: var(--green-light); text-shadow: 0 0 16px rgba(76,175,80,0.5); }
+  50%       { color: var(--accent-2);   text-shadow: 0 0 24px rgba(255,112,67,0.7); }
+}
+
+#timer.urgent {
+  animation: urgentPulse 0.6s ease-in-out infinite;
+}
